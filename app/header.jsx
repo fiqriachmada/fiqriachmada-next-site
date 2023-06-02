@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import headerItems from './about/headerItem';
 import { Transition } from '@headlessui/react';
+import { BeakerIcon, Bars3Icon } from '@heroicons/react/24/outline';
 
 function HeaderNavbar() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -15,7 +16,8 @@ function HeaderNavbar() {
 
   return (
     <div>
-      <button onClick={() => setIsShowing((isShowing) => !isShowing)}>
+      <button type='button' className='bg-white' onClick={() => setIsShowing((isShowing) => !isShowing)}>
+        <Bars3Icon />
         Toggle
       </button>
       <Transition
@@ -28,7 +30,7 @@ function HeaderNavbar() {
         leaveTo="opacity-0">
         I will fade in and out
       </Transition>
-      <div class="flex">
+      {/* <div class="flex">
         <Transition
           show={mobileNavOpen}
           className="absolute top-full h-screen pb-16 z-20 left-0 w-full overflow-scroll bg-white"
@@ -40,14 +42,12 @@ function HeaderNavbar() {
           leaveTo="opacity-0">
           <div class="hidden sm:block sm:w-1/4 bg-gray-200">
             {/* <!-- Konten sidebar --> */}
-            <nav>Web</nav>
+      {/* <nav>Web</nav>
           </div>
         </Transition>
         <div class="w-full sm:w-3/4">
           <nav>Mobile</nav>
           {/* <!-- Konten utama --> */}
-        </div>
-      </div>
 
       <nav className="bg-gray-800">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
